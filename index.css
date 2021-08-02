@@ -2,25 +2,30 @@
     text-align: center;
     margin: auto;
     font-family: monospace;
+
 }
 
 main {
   padding: 3px;
-  background-color: white
+  background-color: white;
+  background-image: url('kumiko-shimizu-_PshNniKRy8-unsplash.jpg');
+  background-size: contain;
+
 }
 
 .spacing {
-  padding-bottom: 5rem;
-  padding-top: 3rem;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
 }
 
 .intro-container {
   font-size: 20px;
   color: rgb(255, 255, 255);
-  background-color: rgba(0, 0, 0, 0.87);
-  width: 80%;
-  margin-top: 1em;
-  border-radius: 6px ;
+  background-color: rgba(32, 32, 32, 0.781);
+  border: 5px solid rgba(119, 0, 69, 0.404);
+  width: 60%;
+  margin-top: 4em;
+  border-radius: 10px ;
 }
 
 .intro-container h1 {
@@ -30,18 +35,26 @@ main {
   
 .search-container {
   font-size: 20px;
-  color: black;
-  background-color: rgba(3, 3, 3, 0.514);
-  width: 79%;
+  color: white;
+  background-color: rgba(32, 32, 32, 0.671);
+  border: 5px solid rgba(158, 4, 94, 0.404);
+  width: 60%;
   margin-top: 1em;
-  border-radius: 6px ;
-  border: 5px solid rgba(0, 0, 0, 0.568);
+  border-radius: 10px ;
 }
 
 .search-container h2 {
   font-size: 40px;
-
 }
+
+.search-container p {
+  margin-bottom: 2em;
+}
+
+#h2 {
+  margin-top: 1em;
+}
+
 
 .search-container p#paragraphAppear {
   margin-top:0.5em;
@@ -51,13 +64,13 @@ main {
 }
 
 .search-container input {
-  width: 30% ;
+  width: 60% ;
   height:3em;
   border-radius: 5px;
 }
 
 .search-container button {
-  width: 15% ;
+  width: 20% ;
   height:2.5em;
   font-size: 15px;
   border-radius: 5px;
@@ -84,11 +97,12 @@ main {
 }  
 
 .imageToDisplay {
-    width: 40vh; 
-    height: 40vh;
+    width: 50vh; 
+    height: 50vh;
     border: 3px dotted white;
+    background-color: rgba(255, 255, 255, 0.589);
+    border-radius: 10px;
 }
-
 
 .polaroidToDisplay {
   width: 50vh; 
@@ -106,13 +120,14 @@ main {
   padding-left: 30px;
   padding-right:30px;
   padding-bottom: 160px;
-  border: 2px solid rgba(0, 0, 0, 0.568);
+  border: 2px solid rgba(190, 183, 183, 0.726);
   display:block;
   margin-top: 0px;
   text-align: center;
   box-shadow: 8px 12px 13px 12px #000000;
   background-color: white;
 }
+
 
 .polaroid-container {
   visibility: hidden;
@@ -123,6 +138,7 @@ main {
   font-size: 35px;
   font-family: 'Caveat';
   margin-top: 20px;
+  color: black;
 }
 
 footer {
@@ -137,10 +153,23 @@ footer {
 
 .polaroid-container {
   font-size: 20px;
-  width: 90%;
+  width: 60%;
   margin-top: 1em
 }
 
 .polaroid-container p {
   padding-bottom: 2em ;
+}
+
+.comment-container form{
+  padding-top: 0.1em ;
+}
+
+.polaroid-container {
+  font-size: 20px;
+  background-color: rgba(32, 32, 32, 0.781);  
+  width: 60%;
+  margin-top: 1em;
+  border-radius: 10px ;
+  color: white;
 }
