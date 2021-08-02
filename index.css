@@ -104,7 +104,7 @@ main {
 }
 
 .polaroidToDisplay {
-  width: 50vh; 
+  width: 95%; 
   height: 50vh;
   padding: 0px;
   border: 2px solid rgba(0, 0, 0, 0.568);
@@ -113,8 +113,8 @@ main {
 }
 
 .polaroidDisplayWrapper {
-  width: 50vh; 
-  height: 50vh;
+  width: 50%; 
+  height: 50%;
   padding-top: 25px;
   padding-left: 30px;
   padding-right:30px;
@@ -150,11 +150,6 @@ footer {
   margin-bottom:1em
 }
 
-.polaroid-container {
-  font-size: 20px;
-  width: 60%;
-  margin-top: 1em
-}
 
 .polaroid-container p {
   padding-bottom: 2em ;
