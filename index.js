@@ -21,7 +21,7 @@ function handleSubmit(event) {
 
 async function getNewImage(searchQuery) {
 let randomNumber = Math.floor(Math.random() * 10);
-return fetch(`https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=vvW0vsDFLMXsZm-LNFiTr4HLp6NLUlyWR1ppxnBkFlw`)
+return fetch(`https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=30&client_id=vvW0vsDFLMXsZm-LNFiTr4HLp6NLUlyWR1ppxnBkFlw`)
   .then((response) => response.json())
   .then((data) => {
     console.log(data)
@@ -32,16 +32,31 @@ return fetch(`https://api.unsplash.com/search/photos?query=${searchQuery}&client
 }
 
 function displayResults(allImages) {
+    const imageDisplay = document.querySelector(".imageDisplayWrapper");
+    let imageToDisplay = document.createElement('img');
+    imageToDisplay.classList.add('.imageToDisplay');
+    imageToDisplay.src = allImages.urls.full
+    // inline stlyes
+    imageToDisplay.style.maxWidth = "50vh";
+    imageToDisplay.style.maxHeight = "50vh";
+    imageToDisplay.style.border = "3px solid black";
+    imageToDisplay.style.maxWidth = "50vh";
+    imageDisplay.appendChild(imageToDisplay);
+
     const searchResults = document.querySelector('.img-info');
     searchResults.textContent = '';
       const unsplashLink = allImages.links.html;
       const photographer = allImages.user.name;
       const description = allImages.alt_description;
-      imageToDisplay.src = allImages.urls.full
       searchResults.insertAdjacentHTML(
         'beforeend',
-        `<div class="img-info-ref" style="color: grey; font-size: 10px" >
-          <p class="description"> <a href="${unsplashLink}" target="_blank" style="color: grey; text-decoration: none; font-size: 10px"> Credit: "${description}" by Photo by ${photographer}</a></p>
+        `<div>
+          <p class="description"> 
+            <a href="${unsplashLink}" target="_blank" 
+            style="margin: 0px; color: grey; text-decoration: none; font-size: 10px;"> 
+            Credit: "${description}" by Photo by ${photographer}
+            </a>
+          </p>
         </div>`
       );  
 };
