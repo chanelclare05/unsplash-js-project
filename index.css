@@ -34,6 +34,7 @@ main {
 .search-container {
   font-size: 20px;
   background-color: rgba(32, 32, 32, 0.151);
+  box-shadow: 2px 5px 41px 34px rgba(32, 32, 32, 0.151);
   width: 60%;
   margin-top: 1em;
   border-radius: 10px ;
