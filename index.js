@@ -1,14 +1,20 @@
-const imageToDisplay = document.querySelector('.imageToDisplay');
 const getImagesButton = document.querySelector('.btn')
 getImagesButton.addEventListener('submit', handleSubmit);
+const captionDisplay = document.querySelector('.comment-container');
+captionDisplay.addEventListener('submit', captionSubmit);
+
+const imageToDisplay = document.querySelector(".imageToDisplay");
+
+const polaroidToDisplay = document.querySelector(".polaroidToDisplay")
+const polaroidContainer = document.querySelector(".polaroid-container")
+
+const paragraphAppear = document.querySelector("#paragraphAppear")
 
 let searchQuery;
+let captionValue;
+
 const form = document.querySelector('.js-form');
 form.addEventListener('submit', handleSubmit);
-
-const requestUrl = `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=vvW0vsDFLMXsZm-LNFiTr4HLp6NLUlyWR1ppxnBkFlw`;
-
-
 
 
 function handleSubmit(event) {
@@ -19,6 +25,15 @@ function handleSubmit(event) {
   getNewImage(searchQuery);
 }
 
+function captionSubmit(event){
+    event.preventDefault();
+    const captionInput = document.querySelector('#caption-description').value;
+    captionValue = captionInput;
+    let captionText = document.querySelector('#polaroid-text');
+    captionText.innerHTML = captionValue;
+    polaroidContainer.style.visibility = "visible";
+}
+
 async function getNewImage(searchQuery) {
 let randomNumber = Math.floor(Math.random() * 10);
 return fetch(`https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=30&client_id=vvW0vsDFLMXsZm-LNFiTr4HLp6NLUlyWR1ppxnBkFlw`)
@@ -27,22 +42,18 @@ return fetch(`https://api.unsplash.com/search/photos?query=${searchQuery}&per_pa
     console.log(data)
     let allImages = data.results[randomNumber];
     displayResults(allImages)
+    getImagesButton.innerHTML = "Another?";
+    paragraphAppear.style.visibility = "visible";
     return allImages.urls.small;
   });
 }
 
 function displayResults(allImages) {
-    const imageDisplay = document.querySelector(".imageDisplayWrapper");
-    let imageToDisplay = document.createElement('img');
-    imageToDisplay.classList.add('.imageToDisplay');
     imageToDisplay.src = allImages.urls.full
-    // inline stlyes
-    imageToDisplay.style.maxWidth = "50vh";
-    imageToDisplay.style.maxHeight = "50vh";
-    imageToDisplay.style.border = "3px solid black";
-    imageToDisplay.style.maxWidth = "50vh";
-    imageDisplay.appendChild(imageToDisplay);
+    polaroidToDisplay.src = allImages.urls.full
+    
 
+    // extra info 
     const searchResults = document.querySelector('.img-info');
     searchResults.textContent = '';
       const unsplashLink = allImages.links.html;
@@ -53,11 +64,12 @@ function displayResults(allImages) {
         `<div>
           <p class="description"> 
             <a href="${unsplashLink}" target="_blank" 
-            style="margin: 0px; color: grey; text-decoration: none; font-size: 10px;"> 
-            Credit: "${description}" by Photo by ${photographer}
+            style="margin: 0px; color: grey; text-decoration: none; font-size: 10px;" title:"title text"> 
+            (Image Credit: "${description}" by Photo by ${photographer} - Unsplash)
             </a>
           </p>
         </div>`
-      );  
-};
+      ); 
+      console.log(allImages);
+}
 

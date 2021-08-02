@@ -2,34 +2,64 @@
   <head>
     <title>Unsplash Photo Search App</title>
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" 
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
     <main>
-      <div class="intro-container">
-        <h1 class="h1">InstaLitre</h1>
-        <p>Your perfect social media post generator for all your lockdown dreams!</p>
-      </div>
 
-      <div class="search-container">
-        <form class="js-form">
-            <input type="text" class="search-input js-search-input" placeholder="Search Photos">
-            <button type="submit" class="btn">Go</button>
-          </form>
-      </div>
+        <section class="introheader">
+            <div class="intro-container spacing">
+                <h1 class="h1">instaroid.</h1>
+                <p>Your dream polaroid wall </p>
+            </div>
+
+            <div class="search-container spacing">
+                
+                <form class="js-form">
+                    <h2>Step One.</h2>
+                    <p>Use the search box below to find your ideal polaroid image!</p>
+                    <input type="text" class="search-input js-search-input" placeholder="Where do you want to be right now?">
+                    <button type="submit" class="btn">Generate Image</button>
+                    <p id="paragraphAppear">Once you chose the one you like, move on to Step 2.</p>
+                </form>
+                <div class="imageDisplayWrapper">
+                    <img class="imageToDisplay"/>
+                </div>
+                
+                <div class='comment-container spacing'>
+                    <h2>Step Two.</h2>
+                    <p>Write a caption and 'say Cheese'!</p>
+                    <form id="caption-form" action="#" method="post">
+                        <label for="caption-description"></label>
+                        <br>
+                        <input type="text" id="caption-description" name="caption-description" placeholder="Polaroid caption goes here!" maxlength="50"> <br>
+                        <button type="submit" class="btn" id="btnSize">3, 2, 1, Say Cheese!</button>
+                    </form>
+                </div>  
+            </div>
+        </section>
 
 
-      <div class='results-container' >
+        <section class="polaroid-container spacing">
+            <h2>Voila</h2>
+            <p>Here is your polaroid. It might take a sec.</p>
+            <div class="polaroidDisplayWrapper">
+                <img class="polaroidToDisplay" style="background-color: black;"/>
+                <p id="polaroid-text"></p>
+            </div>
+        </section>
 
-        <div class="imageDisplayWrapper" >
-          <!-- <img class="imageToDisplay"> -->
-        </div>
-        <div class="img-info"><!--JS to go here--></div>
-      </div>
+        <footer>
+            <div class="img-info"></div>
+        </footer>
 
-      <div class='comment-container'> </div>
-
+      
     </main>
 
     <script type="text/javascript" src="index.js"></script>
