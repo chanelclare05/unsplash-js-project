@@ -1,0 +1,19 @@
+main {
+    text-align: center;
+  }
+  
+  .search-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .imageDisplayWrapper {
+    margin-top: 0px;
+  }
+  
+  .imageToDisplay {
+    width: 50vh; 
+    height: auto; 
+    border: 1px solid black;
+  }
+  
